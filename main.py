@@ -1,20 +1,7 @@
-#!/usr/bin/env python3
-
 from requests import get, post
 import json
 import csv
 import yaml
-
-# import configuration from yaml
-with open("config.yaml", "r") as file:
-    try:
-        configs = yaml.safe_load(file)
-    except yaml.YAMLError as exc:
-        print(exc)
-
-gi_url = configs['gi-url']
-api_key = configs['gi-api-key']
-csv_path = configs['local-csv-file-path']
 
 
 def get_connection_accounts():
@@ -63,12 +50,21 @@ def create_connection_in_gi(connection_config):
     print(response.text)
 
 
-# import the connections to be added from the CSV file
-imported_connections = import_connections_from_csv()
-
-# iterate through the list of connections and add them one by one
-for connection in imported_connections:
-    create_connection_in_gi(connection)
-
 if __name__ == '__main__':    # code to execute if called from command-line
-    pass    # do nothing - code deleted
+    # import configuration from yaml
+    with open("config.yaml", "r") as file:
+        try:
+            configs = yaml.safe_load(file)
+        except yaml.YAMLError as exc:
+            print(exc)
+
+    gi_url = configs['gi-url']
+    api_key = configs['gi-api-key']
+    csv_path = configs['local-csv-file-path']
+
+    # import the connections to be added from the CSV file
+    imported_connections = import_connections_from_csv()
+
+    # iterate through the list of connections and add them one by one
+    for connection in imported_connections:
+        create_connection_in_gi(connection)
