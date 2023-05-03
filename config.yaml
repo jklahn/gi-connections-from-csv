@@ -1,0 +1,8 @@
+# URL to your Guardium Insights instance
+gi-url: "https://insights.gi.example.com"
+
+# API Key / encoded token. Generate this from Settings / Manage API Keys
+gi-api-key: "Basic NDlkY2UDFDF..."
+
+# Path to local CSV file that list the connection configurations to be added to GI
+local-csv-file-path: "connections_to_be_added.csv"
