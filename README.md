@@ -1,7 +1,7 @@
 # gi-connections-from-csv
 Add connections to Guardium Insights from a CSV file.
 Notes:
-- Currently, only Azure Event Hubs connections are support
+- Currently, only Azure Event Hubs connections are supported
 - Requires Python3
 
 # Instructions
